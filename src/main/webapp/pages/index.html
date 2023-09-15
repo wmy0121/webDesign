@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        form, button {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Login or Register</h2>
+
+<div class="form-container active" id="loginForm">
+    <form action="http://localhost:8080/webDesign_war/login" method="post">
+        Username: <input type="text" name="username" required><br>
+        Password: <input type="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<div class="form-container" id="registerForm">
+    <form action="http://localhost:8080/webDesign_war/register" method="post">
+        Username: <input type="text" name="username" required><br>
+        Password: <input type="password" name="password" required><br>
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+<button onclick="toggleForm()">Register</button>
+
+<script>
+    function toggleForm() {
+        var loginForm = document.querySelector("#loginForm");
+        var registerForm = document.querySelector("#registerForm");
+
+        loginForm.classList.toggle("active");
+        registerForm.classList.toggle("active");
+    }
+</script>
+
+</body>
+</html>
